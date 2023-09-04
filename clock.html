@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9</title>
+    <style>
+        #clock{
+            display: flex;
+            justify-content: center;
+            color: darkblue;   
+        }
+    </style>
+</head>
+<body>
+    <h1><div id="clock">00:00:00</div></h1>
+
+    <script>
+         function updateClock() {
+            var clockElement = document.getElementById("clock");
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // Add leading zeros if needed
+            if(hours >12) {
+                hours = hours-12
+            }
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            var formattedTime = hours + ":" + minutes + ":" + seconds;
+            clockElement.textContent = formattedTime;
+        }
+
+        
+        setInterval(updateClock, 1000);
+
+        updateClock();
+    </script>
+
+</body>
+</html>
